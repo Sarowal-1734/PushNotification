@@ -27,7 +27,7 @@ public class FcmNotificationsSender {
 
     private RequestQueue requestQueue;
     private final String postUrl = "https://fcm.googleapis.com/fcm/send";
-    private final String fcmServerKey = "AAAA2rOVYF0:APA91bH7-nIyu0JsdfCI0VvnPHqPSxcmhb_wgNboJR95nwckyFjoa5yOcTJUAetyO63oPdn0O0VcAvoWv7tRgFCcQdRSsZhxsjy75-VkI8yQ2a-MxlHjZuws5YvYivhy5cacYv-6ODEC";
+    private final String fcmServerKey = "copy_and_pase_the_Server_Key_from_firebase/project_overview/project_settings/cloud_messaging/server_key";
 
     public FcmNotificationsSender(String userFcmToken, String title, String body, Context mContext, Activity mActivity) {
         this.userFcmToken = userFcmToken;
