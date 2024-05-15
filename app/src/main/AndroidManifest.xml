@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PushNotification">
         <activity android:name=".MainActivity"
+            android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +23,7 @@
 
         <service
             android:name=".FirebaseMessagingService"
+            android:exported="true"
             android:permission="TODO"
             tools:ignore="ExportedService">
             <intent-filter>
