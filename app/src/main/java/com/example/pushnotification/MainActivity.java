@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         title = editTextTitle.getText().toString();
         message = editTextMessage.getText().toString();
         userToken = editTextUserToken.getText().toString();
-        if (title.length() > 0 && message.length() > 0 && userToken.length() > 0) {
+        if (!title.isEmpty() && !message.isEmpty() && !userToken.isEmpty()) {
             FcmNotificationsSender notificationsSender = new FcmNotificationsSender(userToken,
                     title, message, getApplicationContext(), MainActivity.this);
             notificationsSender.SendNotifications();
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSendNotificationToAllButtonClicked(View view) {
         title = editTextTitle.getText().toString();
         message = editTextMessage.getText().toString();
-        if (title.length() > 0 && message.length() > 0) {
+        if (!title.isEmpty() && !message.isEmpty()) {
             FcmNotificationsSender notificationsSender = new FcmNotificationsSender("/topics/all",
                     title, message, getApplicationContext(), MainActivity.this);
             notificationsSender.SendNotifications();

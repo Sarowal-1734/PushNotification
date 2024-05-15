@@ -14,6 +14,7 @@ import android.os.Vibrator;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+
 import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Objects;
@@ -21,6 +22,12 @@ import java.util.Objects;
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
 
     NotificationManager mNotificationManager;
+
+
+    @Override
+    public void onNewToken(@NonNull String s) {
+        super.onNewToken(s);
+    }
 
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
@@ -41,11 +48,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
         // Build Notification and Send
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "CHANNEL_ID");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder.setSmallIcon(R.drawable.ic_notification);
-        } else {
-            builder.setSmallIcon(R.drawable.ic_notification);
-        }
+        builder.setSmallIcon(R.drawable.ic_notification);
 
         Intent resultIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
