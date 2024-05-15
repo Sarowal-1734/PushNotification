@@ -74,13 +74,6 @@ jobs:
       #          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
       #          initial_comment: "Release build is now available."
       #
-      - name: Upload apk to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID_RELEASE}}
-          serviceCredentialsFileContent: ${{ secrets.SERVICE_CREDENTIALS_FILE_RELEASE }}
-          groups: ${{ github.event.inputs.testers }}
-          file: ${{ steps.releaseApk.outputs.apkfile }}
 
       - name: Upload Release Build to Artifacts
         uses: actions/upload-artifact@v4
